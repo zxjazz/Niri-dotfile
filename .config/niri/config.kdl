@@ -441,14 +441,14 @@ binds {
     Mod+F2 hotkey-overlay-title="Browser: zen" { spawn "zen-browser"; }
     Mod+F3 hotkey-overlay-title="File Manager: nautilus" { spawn "nautilus"; }
     Mod+F4 hotkey-overlay-title="OBS Studio: obs" { spawn "obs"; }
-    Mod+Shift+V hotkey-overlay-title="Clipboard manager: cliphist" {spawn "bash" "-c" "pgrep fuzzel && pkill fuzzel || ~/.local/share/bin/cliphist-fuzzel-img";}
-    Mod+Space hotkey-overlay-title="Toggle bar: waybar" { spawn "~/.local/share/bin/toggle-waybar.sh"; }
+    Mod+Shift+V hotkey-overlay-title="Clipboard manager: cliphist" {spawn "bash" "-c" "pgrep fuzzel && pkill fuzzel || cliphist-fuzzel-img";}
+    Mod+Space hotkey-overlay-title="Toggle bar: waybar" { spawn "toggle-waybar.sh"; }
     Mod+N hotkey-overlay-title="Toggle Notification: swaync" { spawn "swaync-client" "-t"; }
-    Mod+Shift+Space hotkey-overlay-title="Lock bar: waybar" { spawn "~/.local/share/bin/lock-waybar.sh"; }
+    Mod+Shift+Space hotkey-overlay-title="Lock bar: waybar" { spawn "lock-waybar.sh"; }
     XF86Calculator hotkey-overlay-title="Calculator: galculator" { spawn "galculator";}
 
 
-    XF86AudioRaiseVolume allow-when-locked=true {spawn "~/.local/share/bin/volume_up.sh";}
+    XF86AudioRaiseVolume allow-when-locked=true {spawn "volume_up.sh";}
     XF86AudioLowerVolume allow-when-locked=true {spawn "volumectl" "-b" "-u" "-d" "down";}
     XF86AudioMute allow-when-locked=true { spawn "volumectl" "-d" "toggle-mute";}
     XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }

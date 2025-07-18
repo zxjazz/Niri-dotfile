@@ -1,7 +1,7 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 35,
+    "height": 36,
     "margin-top": 3,
     "margin-left": 2,
     "margin-right": 2,
@@ -30,10 +30,6 @@
     ],
     "niri/workspaces": {
         "format": "{icon}",
-        "format-icons": {
-            "default": "",
-            "active": ""
-        },
     },
     "mpris": {
         "player-icons": {
@@ -112,7 +108,7 @@
     },
     "custom/clipboard": {
         "format": "",
-        "on-click": "pgrep fuzzel && pkill fuzzel || $HOME/.config/niri/scripts/cliphist-fuzzel-img",
+        "on-click": "pgrep fuzzel && pkill fuzzel || cliphist-fuzzel-img",
         "tooltip-format": "Clipboard"
     },
     "custom/vkeyboard": {

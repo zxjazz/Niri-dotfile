@@ -1,7 +1,7 @@
 * {
     font-family: "JetBrainsMono Nerd Font";
     font-size: 13px;
-    color: #1e1e2e;
+    color: #b4befe;
     transition: 0.1s ease-in-out;
 }
 
@@ -54,10 +54,14 @@ tooltip label {
 }
 
 #workspaces {
-    background-color: #b4befe;
+    background-color: #45475a;
     border-radius: 10px;
-    padding: 0 6 0 2px;
     margin: 4px 0px;
+}
+
+#workspaces button label {
+    color: #b4befe;
+    padding: 0 4px;
 }
 
 #workspaces button {
@@ -67,9 +71,17 @@ tooltip label {
     min-width: 1px;
 }
 
-#workspaces button.active {
+#workspaces button.active label {
     color: #1e1e2e;
+}
+
+#workspaces button.active,
+#workspaces button.focused {
+    background-color: #b4befe;
+    border-radius: 8px;
+    padding: 0 10px;
     font-weight: bold;
+
 }
 
 #workspaces button:hover {
@@ -96,8 +108,8 @@ tooltip label {
 #idle_inhibitor,
 #privacy,
 #mpris,
-#pulseaudio,
-#tray {
+#pulseaudio {
+    color: #1e1e2e;
     padding: 0px 10px;
     margin: 4px 0px;
 }
