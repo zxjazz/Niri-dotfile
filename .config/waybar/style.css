@@ -79,7 +79,7 @@ tooltip label {
 #workspaces button.focused {
     background-color: #b4befe;
     border-radius: 8px;
-    padding: 0 10px;
+    padding: 2 10px;
     font-weight: bold;
 
 }
