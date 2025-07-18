@@ -1,7 +1,7 @@
 * {
     font-family: "JetBrainsMono Nerd Font";
     font-size: 13px;
-    color: #b4befe;
+    color: #1e1e2e;
     transition: 0.1s ease-in-out;
 }
 
@@ -12,6 +12,10 @@ window#waybar {
 }
 
 tooltip label {
+    color: #b4befe;
+}
+
+#tray menu label {
     color: #b4befe;
 }
 
@@ -109,7 +113,6 @@ tooltip label {
 #privacy,
 #mpris,
 #pulseaudio {
-    color: #1e1e2e;
     padding: 0px 10px;
     margin: 4px 0px;
 }
@@ -164,6 +167,10 @@ tooltip label {
 #privacy {
     background-color: #eba0ac;
     border-radius: 10px;
+}
+
+#privacy-item.audio-out {
+    color: #1e1e2e;
 }
 
 /* Idle Inhibitor - Rosewater */
