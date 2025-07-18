@@ -4,8 +4,6 @@ Personal dotfiles for the [Niri](https://github.com/YaLTeR/niri) Wayland composi
 
 > 🎨 Theme: [Catppuccin Mocha](https://github.com/catppuccin)
 
-https://github.com/user-attachments/assets/64b3a656-2cf6-4209-a55c-4d6f3760efee
-
 ## ✨ Features
 
 - Waybar auto-hide script.
