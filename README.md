@@ -26,6 +26,7 @@ Personal dotfiles for the [Niri](https://github.com/YaLTeR/niri) Wayland composi
 | On-Screen Display | [`avizo`](https://github.com/heyjuvi/avizo) |
 | File Manager | [`nautilus`](https://gitlab.gnome.org/GNOME/nautilus) / [`yazi`](https://github.com/sxyazi/yazi) |
 | Shell | [`fish`](https://github.com/fish-shell/fish-shell) |
+| Display Manager | [`ly`](https://github.com/liweitianux/ly-dm)
 
 ## 📦 Installation
 

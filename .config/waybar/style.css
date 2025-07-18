@@ -1,0 +1,210 @@
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px;
+    color: #1e1e2e;
+    transition: 0.1s ease-in-out;
+}
+
+/* Base bar background */
+window#waybar {
+    background-color: #1e1e2e;
+    border-radius: 12px;
+}
+
+tooltip label {
+    color: #b4befe;
+}
+
+/* === Individual Module Styles === */
+
+/* Clock - Sky */
+#clock {
+    background-color: #89dceb;
+    border-radius: 10px;
+}
+
+/* Battery - Green (normal), Yellow (warning), Red (critical) */
+#battery {
+    background-color: #a6e3a1;
+    border-radius: 10px;
+}
+
+#battery.warning:not(.charging) {
+    background-color: #f9e2af;
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f38ba8;
+    color: #1e1e2e;
+    animation: blink 0.5s linear infinite alternate;
+}
+
+#pulseaudio {
+    background-color: #89b4fa;
+    border-radius: 10px;
+}
+
+#pulseaudio.muted {
+    background-color: #f38ba8;
+}
+
+#backlight {
+    background-color: #f9e2af;
+    border-radius: 10px;
+}
+
+#workspaces {
+    background-color: #b4befe;
+    border-radius: 10px;
+    padding: 0 6 0 2px;
+    margin: 4px 0px;
+}
+
+#workspaces button {
+    padding: 2px 6px;
+    border-radius: 8px;
+    background: transparent;
+    min-width: 1px;
+}
+
+#workspaces button.active {
+    color: #1e1e2e;
+    font-weight: bold;
+}
+
+#workspaces button:hover {
+    color: rgba(0, 0, 0, 0);
+}
+
+#workspaces button.urgent {
+    background-color: #f38ba8;
+}
+
+#tray,
+#custom-power,
+#battery,
+#custom-launcher,
+#custom-clock,
+#custom-notification,
+#clock,
+#backlight,
+#custom-clipboard,
+#custom-vkeyboard,
+#custom-notification.notification,
+#custom-notification.dnd-none,
+#custom-notification.dnd-notification,
+#idle_inhibitor,
+#privacy,
+#mpris,
+#pulseaudio,
+#tray {
+    padding: 0px 10px;
+    margin: 4px 0px;
+}
+
+/* Tray - Flamingo */
+#tray {
+    background-color: #f2cdcd;
+    border-radius: 10px;
+}
+
+/* Custom Power - Red */
+#custom-power {
+    margin-right: 3px;
+    padding-right: 12px;
+    background-color: #f38ba8;
+    border-radius: 10px;
+}
+
+/* Custom Launcher - Peach */
+#custom-launcher {
+    margin-left: 3px;
+    padding-left: 9px;
+    padding-right: 13px;
+    background-color: #fab387;
+    border-radius: 10px;
+}
+
+/* Custom Clipboard - Pink */
+#custom-clipboard {
+    font-family: "Font Awesome 6 Free";
+    background-color: #f5c2e7;
+    border-radius: 10px;
+}
+
+/* Custom Notification - Mauve */
+#custom-notification {
+    padding-left: 9px;
+    padding-right: 11px;
+    background-color: #cba6f7;
+    border-radius: 10px;
+}
+
+/* Custom VKeyboard - Teal */
+#custom-vkeyboard {
+    padding-left: 8px;
+    padding-right: 13px;
+    background-color: #94e2d5;
+    border-radius: 10px;
+}
+
+/* Privacy - Maroon */
+#privacy {
+    background-color: #eba0ac;
+    border-radius: 10px;
+}
+
+/* Idle Inhibitor - Rosewater */
+#idle_inhibitor {
+    padding-right: 8px;
+    background-color: #f5e0dc;
+    border-radius: 10px;
+}
+
+/* MPRIS - Sapphire */
+#mpris {
+    background-color: #74c7ec;
+    border-radius: 10px;
+}
+
+#custom-notification.dnd-none {
+    padding-left: 7px;
+    padding-right: 13px;
+}
+
+#custom-notification.dnd-notification {
+    padding-left: 7px;
+    padding-right: 8px;
+}
+
+#custom-notification.notification {
+    padding-left: 8px;
+    padding-right: 7px;
+}
+
+/* Hover effect for all modules */
+#clock:hover,
+#battery:hover,
+#pulseaudio:hover,
+#backlight:hover,
+#tray:hover,
+#workspaces:hover,
+#custom-power:hover,
+#custom-launcher:hover,
+#custom-clipboard:hover,
+#custom-notification:hover,
+#custom-vkeyboard:hover,
+#privacy:hover,
+#idle_inhibitor:hover,
+#mpris:hover {
+    transition: all 0.2s ease-in;
+    text-shadow: 0 0 1px #1e1e2e;
+    /* filter: brightness(1.1); */
+}
+
+/* Blinking critical battery */
+@keyframes blink {
+    to {
+        color: #1e1e2e;
+    }
+}
