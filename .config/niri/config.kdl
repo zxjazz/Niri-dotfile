@@ -4,7 +4,7 @@
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Introduction
 
 environment {
-    DISPLAY ":1"
+    DISPLAY ":0"
     ELECTRON_OZONE_PLATFORM_HINT "auto"
 }
 
@@ -445,6 +445,7 @@ binds {
     Mod+Space hotkey-overlay-title="Toggle bar: waybar" { spawn "toggle-waybar.sh"; }
     Mod+N hotkey-overlay-title="Toggle Notification: swaync" { spawn "swaync-client" "-t"; }
     Mod+Shift+Space hotkey-overlay-title="Lock bar: waybar" { spawn "lock-waybar.sh"; }
+    Mod+E hotkey-overlay-title="Show emojis: fuzzel" { spawn "fuzzel-emoji";}
     XF86Calculator hotkey-overlay-title="Calculator: galculator" { spawn "galculator";}
 
 
