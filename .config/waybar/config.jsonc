@@ -39,7 +39,7 @@
         "format-paused": "▶ {dynamic}",
         "format-stopped": "⏹ Stopped",
         "interval": 1,
-        "max-length": 60
+        "max-length": 70
     },
     "idle_inhibitor": {
         "format": "{icon}",
@@ -97,7 +97,6 @@
             "car": "",
             "default": ["󰕿", "󰖀", "󰕾"],
         },
-        "interval": 60,
         "on-click": "pamixer --toggle-mute",
         "on-scroll-up": "pamixer --allow-boost --set-limit 150 --increase 2",
         "on-scroll-down": "pamixer --allow-boost --set-limit 150 --decrease 2",

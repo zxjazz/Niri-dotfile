@@ -1,0 +1,15 @@
+#!/bin/bash
+
+count=$(checkupdates | wc -l)
+
+if [[ $count != 0 ]]; then
+	if [[ $count == 1 ]]; then
+		message="$count packages await your wisdom, Arch master"
+	else
+		message="$count package awaits your wisdom, Arch master"
+	fi
+	capture=$(fyi --expire-time=10000 --icon=.dotfiles/.config/fastfetch/pngs/arch.png --action=Update:Update "$message")
+	if [[ "$capture" == "action=Update" ]]; then
+		kitty -e yay -Syu
+	fi
+fi

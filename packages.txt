@@ -46,3 +46,4 @@ ttf-nerd-fonts-symbols-mono
 noto-fonts-extra
 noto-fonts
 noto-fonts-cjk
+otf-commit-mono-nerd

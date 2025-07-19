@@ -9,7 +9,7 @@ environment {
 }
 
 cursor {
-    xcursor-theme "catppuccin-mocha-lavender-cursors"
+    xcursor-theme "catppuccin-mocha-dark-cursors"
 }
 
 layer-rule {
@@ -445,7 +445,7 @@ binds {
     Mod+Space hotkey-overlay-title="Toggle bar: waybar" { spawn "toggle-waybar.sh"; }
     Mod+N hotkey-overlay-title="Toggle Notification: swaync" { spawn "swaync-client" "-t"; }
     Mod+Shift+Space hotkey-overlay-title="Lock bar: waybar" { spawn "lock-waybar.sh"; }
-    Mod+E hotkey-overlay-title="Show emojis: fuzzel" { spawn "fuzzel-emoji";}
+    Mod+E hotkey-overlay-title="Show emojis: fuzzel" { spawn "bash" "-c" "pgrep fuzzel && pkill fuzzel || fuzzel-emoji";}
     XF86Calculator hotkey-overlay-title="Calculator: galculator" { spawn "galculator";}
 
 
