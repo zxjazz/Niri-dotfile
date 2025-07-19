@@ -44,8 +44,8 @@
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": " ",
-            "deactivated": " "
+            "activated": "󰈈",
+            "deactivated": "󰈉"
         }
     },
     "tray": {
@@ -70,7 +70,7 @@
             "critical": 20
         },
         "format-charging": "<b>↯ {capacity}%</b>",
-        "format": "{icon}  {capacity}%",
+        "format": "{icon} {capacity}%",
         "format-icons": [
             "",
             "",
@@ -78,7 +78,8 @@
             "",
             ""
         ],
-        "interval": 1
+        "interval": 1,
+        "tooltip": true
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -86,20 +87,21 @@
         "format": "{icon} {volume}%",
         "format-bluetooth": " {volume}%",
         "format-bluetooth-muted": " {volume}%",
-        "format-muted": "x {volume}%",
+        "format-muted": "󰝟 {volume}%",
         "format-source": "{volume}% ",
         "format-source-muted": " ",
         "format-icons": {
-            "headphone": " ",
-            "phone": " ",
-            "portable": " ",
-            "car": " ",
-            "default": [" "],
+            "headphone": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["󰕿", "󰖀", "󰕾"],
         },
         "interval": 60,
         "on-click": "pamixer --toggle-mute",
         "on-scroll-up": "pamixer --allow-boost --set-limit 150 --increase 2",
-        "on-scroll-down": "pamixer --allow-boost --set-limit 150 --decrease 2"
+        "on-scroll-down": "pamixer --allow-boost --set-limit 150 --decrease 2",
+        "tooltip": true
     },
     "custom/launcher": {
         "format": "",
@@ -107,7 +109,7 @@
         "tooltip-format": "Launcher"
     },
     "custom/clipboard": {
-        "format": "",
+        "format": "󰅇",
         "on-click": "pgrep fuzzel && pkill fuzzel || cliphist-fuzzel-img",
         "tooltip-format": "Clipboard"
     },
@@ -117,7 +119,7 @@
         "tooltip-format": "Virtual Keyboard"
     },
     "custom/power": {
-        "format": "",
+        "format": "⏼",
         "tooltip": false,
         "on-click": "wlogout -c 15 -b 6 -m 400"
     },
@@ -133,14 +135,14 @@
         "tooltip": false,
         "format": "{icon}",
         "format-icons": {
-            "notification": "\uF0A2<span foreground='#1e1e2e'><sup>\uF444</sup></span>",
-            "none": "\uF0A2",
-            "dnd-notification": "\uF1F7<span foreground='#1e1e2e'><sup>\uF444</sup></span>",
-            "dnd-none": "\uF1F7",
-            "inhibited-notification": "\uF0A2<span foreground='#1e1e2e'><sup>\uF444></sup></span>",
-            "inhibited-none": "\uF0A2",
-            "dnd-inhibited-notification": "\uF1F7<span foreground='#1e1e2e'><sup>\uF444</sup></span>",
-            "dnd-inhibited-none": "\uF1F7"
+            "notification": "󱅫",
+            "none": "󰂚",
+            "dnd-notification": "󱏧<span foreground='#1e1e2e'><sup></sup></span>",
+            "dnd-none": "󱏧",
+            "inhibited-notification": "󰂚<span foreground='#1e1e2e'><sup></sup></span>",
+            "inhibited-none": "󰂚",
+            "dnd-inhibited-notification": "<span foreground='#1e1e2e'><sup></sup></span>",
+            "dnd-inhibited-none": "󱏧"
         },
         "return-type": "json",
         "exec-if": "which swaync-client",

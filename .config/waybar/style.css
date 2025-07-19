@@ -1,8 +1,9 @@
 * {
-    font-family: "JetBrainsMono Nerd Font";
-    font-size: 13px;
+    font-family: "CommitMono Nerd Font Propo";
+    font-size: 12px;
     color: #1e1e2e;
     transition: 0.1s ease-in-out;
+    font-weight: bolder;
 }
 
 /* Base bar background */
@@ -126,7 +127,6 @@ tooltip label {
 /* Custom Power - Red */
 #custom-power {
     margin-right: 3px;
-    padding-right: 12px;
     background-color: #f38ba8;
     border-radius: 10px;
 }
@@ -134,23 +134,18 @@ tooltip label {
 /* Custom Launcher - Peach */
 #custom-launcher {
     margin-left: 3px;
-    padding-left: 9px;
-    padding-right: 13px;
     background-color: #fab387;
     border-radius: 10px;
 }
 
 /* Custom Clipboard - Pink */
 #custom-clipboard {
-    font-family: "Font Awesome 6 Free";
     background-color: #f5c2e7;
     border-radius: 10px;
 }
 
 /* Custom Notification - Mauve */
 #custom-notification {
-    padding-left: 9px;
-    padding-right: 11px;
     background-color: #cba6f7;
     border-radius: 10px;
 }
@@ -175,7 +170,6 @@ tooltip label {
 
 /* Idle Inhibitor - Rosewater */
 #idle_inhibitor {
-    padding-right: 8px;
     background-color: #f5e0dc;
     border-radius: 10px;
 }
@@ -186,20 +180,22 @@ tooltip label {
     border-radius: 10px;
 }
 
-#custom-notification.dnd-none {
-    padding-left: 7px;
-    padding-right: 13px;
-}
+/* #custom-notification.dnd-none { */
+/*     padding-left: 7px; */
+/*     padding-right: 13px; */
+/* } */
+/**/
 
 #custom-notification.dnd-notification {
-    padding-left: 7px;
-    padding-right: 8px;
-}
-
-#custom-notification.notification {
     padding-left: 8px;
     padding-right: 7px;
 }
+
+/**/
+/* #custom-notification.notification { */
+/*     padding-left: 8px; */
+/*     padding-right: 7px; */
+/* } */
 
 /* Hover effect for all modules */
 #clock:hover,
