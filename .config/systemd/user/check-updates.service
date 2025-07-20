@@ -4,5 +4,5 @@ After=graphical-session.target
 Requisite=graphical-session.target
 
 [Service]
-ExecStartPre=/bin/sleep 60
+ExecStartPre=/bin/sleep 10
 ExecStart=%h/.local/share/bin/check-updates
