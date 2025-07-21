@@ -10,6 +10,10 @@ Personal dotfiles for the [Niri](https://github.com/YaLTeR/niri) Wayland composi
 - Consistent **Catppuccin Mocha** theme across all apps.
 - Full desktop-like experience on a minimal **Niri** setup.
 
+## 🖼️ Preview
+
+https://github.com/user-attachments/assets/45b74f29-095a-4b79-9f94-80d1604d45da
+
 ## 🧰 Tools & Utilities
 
 | Category | Application |
