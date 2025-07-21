@@ -6,7 +6,7 @@ Personal dotfiles for the [Niri](https://github.com/YaLTeR/niri) Wayland composi
 
 ## 🖼️ Preview
 
-https://github.com/user-attachments/assets/45b74f29-095a-4b79-9f94-80d1604d45da
+https://github.com/user-attachments/assets/91898320-7f52-4a83-97ac-d512cce48e85
 
 ## ✨ Features
 
