@@ -311,12 +311,12 @@ animations {
     // Uncomment to turn off all animations.
     // off
     window-close {
-        duration-ms 500
+        duration-ms 250
         curve "ease-out-quad"
     }
 
     screenshot-ui-open {
-        duration-ms 1000
+        duration-ms 500
         curve "ease-out-quad"
     }
 
@@ -332,6 +332,10 @@ animations {
         spring damping-ratio=0.7 stiffness=200 epsilon=0.0001
     }
     window-resize {
+        spring damping-ratio=0.7 stiffness=200 epsilon=0.0001
+    }
+
+    window-open {
         spring damping-ratio=0.7 stiffness=200 epsilon=0.0001
     }
 
@@ -507,11 +511,11 @@ binds {
     Mod+Up    { focus-window-up; }
     Mod+Right { focus-column-right; }
     Mod+H     { focus-column-left; }
-    Mod+J     { focus-window-down; }
-    Mod+K     { focus-window-up; }
-    Alt+Tab     { focus-window-down-or-top; }
+    Mod+J     { focus-window-down-or-top; }
+    Mod+K     { focus-window-up-or-bottom; }
     Alt+Shift+Tab     { focus-window-up-or-bottom; }
     Mod+L     { focus-column-right; }
+    Alt+Tab {focus-window-previous;}
 
     Mod+Shift+Left  { move-column-left; }
     Mod+Shift+Down  { move-window-down; }
