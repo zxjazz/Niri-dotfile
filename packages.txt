@@ -47,3 +47,4 @@ noto-fonts-extra
 noto-fonts
 noto-fonts-cjk
 otf-commit-mono-nerd
+wtype

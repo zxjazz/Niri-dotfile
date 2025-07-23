@@ -368,6 +368,7 @@ window-rule {
 window-rule {
     match app-id=r#"^org\.kde\.kdeconnect\.daemon$"#
     match app-id=r#"^galculator$"#
+    match app-id=r#"^org.kde.kdeconnect.handler$"#
     open-floating true
 }
 
