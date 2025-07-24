@@ -114,8 +114,8 @@
         "tooltip-format": "Clipboard"
     },
     "custom/vkeyboard": {
-        "format": "",
-        "on-click": "pkill wvkbd-mobintl || wvkbd-mobintl --bg 1e1e2b --fg 313244 --fg-sp 313244",
+        "format": "󰌌",
+        "on-click": "pgrep fuzzel && pkill wvkbd-mobintl || wvkbd-mobintl --bg 1e1e2b --fg 313244 --fg-sp 313244",
         "tooltip-format": "Virtual Keyboard"
     },
     "custom/power": {

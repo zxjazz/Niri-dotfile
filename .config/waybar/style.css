@@ -152,10 +152,9 @@ tooltip label {
 
 /* Custom VKeyboard - Teal */
 #custom-vkeyboard {
-    padding-left: 8px;
-    padding-right: 13px;
     background-color: #94e2d5;
     border-radius: 10px;
+    font-size: 14;
 }
 
 /* Privacy - Maroon */
