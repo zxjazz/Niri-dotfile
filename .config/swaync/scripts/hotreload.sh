@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 DIR="$HOME/.config/swaync"
-CONFIG_FILES="$DIR/config.json $DIR/colorschemes/ $DIR/style.css"
+CONFIG_FILES="$DIR/config.json $DIR/style.css"
 
 trap "pkill swaync" EXIT
 
