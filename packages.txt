@@ -5,7 +5,6 @@ wlogout
 swww
 imagemagick
 fuzzel
-wvkbd
 avizo
 pamixer
 cliphist
@@ -48,3 +47,5 @@ noto-fonts
 noto-fonts-cjk
 otf-commit-mono-nerd
 wtype
+gnome-keyring
+wf-osk-git

@@ -21,7 +21,7 @@
         "privacy",
         "idle_inhibitor",
         "custom/clipboard",
-        // "custom/vkeyboard",
+        "custom/vkeyboard",
         "pulseaudio",
         "backlight",
         "battery",
@@ -85,11 +85,11 @@
         // "scroll-step": 1, // %, can be a float
         "tooltip": false,
         "format": "{icon} {volume}%",
-        "format-bluetooth": " {volume}%",
-        "format-bluetooth-muted": " {volume}%",
+        "format-bluetooth": "󰂯 {volume}%",
+        "format-bluetooth-muted": "󰂲 {volume}%",
         "format-muted": "󰝟 {volume}%",
-        "format-source": "{volume}% ",
-        "format-source-muted": " ",
+        "format-source": "󰍬 {volume}%",
+        "format-source-muted": "󰍭",
         "format-icons": {
             "headphone": "",
             "phone": "",
@@ -105,17 +105,17 @@
     },
     "custom/launcher": {
         "format": "",
-        "on-click": "pgrep fuzzel && pkill fuzzel || fuzzel",
+        "on-click": "pkill fuzzel || fuzzel",
         "tooltip-format": "Launcher"
     },
     "custom/clipboard": {
         "format": "󰅇",
-        "on-click": "pgrep fuzzel && pkill fuzzel || cliphist-fuzzel-img",
+        "on-click": "pkill fuzzel || cliphist-fuzzel-img",
         "tooltip-format": "Clipboard"
     },
     "custom/vkeyboard": {
         "format": "󰌌",
-        "on-click": "pgrep fuzzel && pkill wvkbd-mobintl || wvkbd-mobintl --bg 1e1e2b --fg 313244 --fg-sp 313244",
+        "on-click": "pkill wf-osk || wf-osk --height 200 -a bottom",
         "tooltip-format": "Virtual Keyboard"
     },
     "custom/power": {
