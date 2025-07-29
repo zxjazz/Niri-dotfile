@@ -105,14 +105,15 @@ tooltip label {
 #custom-notification,
 #clock,
 #backlight,
-#custom-clipboard,
-#custom-vkeyboard,
+/* #custom-clipboard, */
+/* #custom-vkeyboard, */
 #custom-notification.notification,
 #custom-notification.dnd-none,
 #custom-notification.dnd-notification,
 #idle_inhibitor,
 #privacy,
 #mpris,
+#misc,
 #pulseaudio {
     padding: 0px 10px;
     margin: 4px 0px;
@@ -139,10 +140,10 @@ tooltip label {
 }
 
 /* Custom Clipboard - Pink */
-#custom-clipboard {
-    background-color: #f5c2e7;
-    border-radius: 10px;
-}
+/* #custom-clipboard { */
+/*     background-color: #f5c2e7; */
+/*     border-radius: 10px; */
+/* } */
 
 /* Custom Notification - Mauve */
 #custom-notification {
@@ -151,16 +152,28 @@ tooltip label {
 }
 
 /* Custom VKeyboard - Teal */
-#custom-vkeyboard {
-    background-color: #94e2d5;
-    border-radius: 10px;
-    font-size: 14;
-}
+/* #custom-vkeyboard { */
+/*     background-color: #94e2d5; */
+/*     border-radius: 10px; */
+/*     font-size: 14; */
+/* } */
 
 /* Privacy - Maroon */
 #privacy {
     background-color: #eba0ac;
     border-radius: 10px;
+}
+
+#custom-vkeyboard,
+#custom-clipboard {
+    margin: 0 6px;
+    font-size: 13px;
+}
+
+#misc {
+    background-color: #94e2d5;
+    border-radius: 10px;
+    padding: 0 2px;
 }
 
 #privacy-item.audio-out {

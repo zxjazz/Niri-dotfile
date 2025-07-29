@@ -20,8 +20,9 @@
     "modules-right": [
         "privacy",
         "idle_inhibitor",
-        "custom/clipboard",
-        "custom/vkeyboard",
+        "group/misc",
+        // "custom/clipboard",
+        // "custom/vkeyboard",
         "pulseaudio",
         "backlight",
         "battery",
@@ -84,7 +85,7 @@
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "tooltip": false,
-        "format": "{icon} {volume}%",
+        "format": "<span font_desc='CommitMono Nerd Font Propo 10'>{icon}</span> {volume}%",
         "format-bluetooth": "󰂯 {volume}%",
         "format-bluetooth-muted": "󰂲 {volume}%",
         "format-muted": "󰝟 {volume}%",
@@ -184,4 +185,11 @@
             }
         ]
     },
+    "group/misc": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/clipboard",
+            "custom/vkeyboard"
+        ]
+    }
 }

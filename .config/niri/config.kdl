@@ -18,6 +18,24 @@ layer-rule {
 }
 
 layer-rule {
+    match namespace="swaync-notification-window"
+    block-out-from "screen-capture"
+}
+
+layer-rule {
+    match namespace="launcher"
+    shadow {
+        on
+        softness 40
+        spread 5
+        offset x=0 y=5
+        draw-behind-window true
+        color "#00000064"
+        // inactive-color "#00000064"
+    }
+}
+
+layer-rule {
     match namespace="^wallpaper$"
     place-within-backdrop true
 }
@@ -373,9 +391,8 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"org.kde.polkit-kde-authentication-agent-1"#
+    match app-id="polkit-gnome-authentication-agent-1"
     block-out-from "screen-capture"
-    // block-out-from "screencast"
 }
 
 // Open the Firefox picture-in-picture player as floating by default.
@@ -395,7 +412,7 @@ window-rule {
 
 window-rule {
     match app-id=r#"kitty$"#
-    default-column-width {proportion 0.55;}
+    default-column-width {proportion 0.5;}
 }
 
 window-rule {
@@ -442,7 +459,7 @@ window-rule {
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
 window-rule {
-    geometry-corner-radius 5
+    geometry-corner-radius 16
     clip-to-geometry true
 }
 
