@@ -12,7 +12,6 @@ workspace "2"
 workspace "3"
 workspace "4"
 
-
 input {
     keyboard {
         xkb {
@@ -299,23 +298,23 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
 
-    Mod+A       hotkey-overlay-title="Run an application: fuzzel"   { spawn "bash" "-c" "pkill fuzzel || fuzzel"; }
-    Mod+E       hotkey-overlay-title="Show emojis: fuzzel"          { spawn "bash" "-c" "pkill fuzzel || fuzzel-emoji"; }
-    Mod+Shift+V hotkey-overlay-title="Clipboard manager: cliphist"  { spawn "bash" "-c" "pkill fuzzel || cliphist-fuzzel-img"; }
-    Mod+Backspace   hotkey-overlay-title="Logout: wlogout"          { spawn "bash" "-c" "pkill wlogout || wlogout -c 15 -b 6 -m 400"; }
+    Mod+A           hotkey-overlay-title="Run an application: fuzzel"   repeat=false    { spawn "bash" "-c" "pkill fuzzel || fuzzel"; }
+    Mod+E           hotkey-overlay-title="Show emojis: fuzzel"          repeat=false    { spawn "bash" "-c" "pkill fuzzel || fuzzel-emoji"; }
+    Mod+Shift+V     hotkey-overlay-title="Clipboard manager: cliphist"  repeat=false    { spawn "bash" "-c" "pkill fuzzel || cliphist-fuzzel-img"; }
+    Mod+Backspace   hotkey-overlay-title="Session Manager: wlogout"     repeat=false    { spawn "bash" "-c" "pkill wlogout || wlogout -c 15 -b 6 -m 400"; }
 
-    Mod+N           hotkey-overlay-title="Toggle Notification: swaync"  { spawn "swaync-client" "-t"; }
-    Mod+Space       hotkey-overlay-title="Toggle bar: waybar"           { spawn "toggle-waybar"; }
-    Mod+Shift+Space hotkey-overlay-title="Lock bar: waybar"             { spawn "lock-waybar"; }
+    Mod+N           hotkey-overlay-title="Toggle Notification: swaync"  repeat=false    { spawn "swaync-client" "-t"; }
+    Mod+Space       hotkey-overlay-title="Toggle bar: waybar"           repeat=false    { spawn "toggle-waybar"; }
+    Mod+Shift+Space hotkey-overlay-title="Lock bar: waybar"             repeat=false    { spawn "lock-waybar"; }
 
-    Mod+F1  hotkey-overlay-title="Text Editor: neovide"      { spawn "neovide"; }
-    Mod+F2  hotkey-overlay-title="Browser: zen"              { spawn "zen-browser"; }
-    Mod+F3  hotkey-overlay-title="File Manager: nautilus"    { spawn "nautilus"; }
-    Mod+F4  hotkey-overlay-title="OBS Studio: obs"           { spawn "obs"; }
-    Mod+T   hotkey-overlay-title="Open a Terminal: kitty"    { spawn "kitty"; }
+    Mod+F1  hotkey-overlay-title="Open Text editor: neovide"        repeat=false    { spawn "neovide"; }
+    Mod+F2  hotkey-overlay-title="Open Browser: zen"                repeat=false    { spawn "zen-browser"; }
+    Mod+F3  hotkey-overlay-title="Open File Manager: nautilus"      repeat=false    { spawn "nautilus"; }
+    Mod+F4  hotkey-overlay-title="Open OBS Studio: obs"             repeat=false    { spawn "obs"; }
+    Mod+T   hotkey-overlay-title="Open a Terminal: kitty"           repeat=false    { spawn "kitty"; }
 
 
-    XF86Calculator  hotkey-overlay-title="Calculator: galculator"   { spawn "galculator"; }
+    XF86Calculator  hotkey-overlay-title="Open Calculator: galculator"  repeat=false    { spawn "galculator"; }
 
     XF86AudioRaiseVolume    allow-when-locked=true  { spawn "volume_up"; }
     XF86AudioLowerVolume    allow-when-locked=true  { spawn "volumectl" "-b" "-u" "-d" "down"; }
@@ -332,7 +331,7 @@ binds {
     XF86MonBrightnessUp         allow-when-locked=true  { spawn "lightctl" "-d" "-e" "2" "up"; }
     XF86MonBrightnessDown       allow-when-locked=true  { spawn "lightctl" "-d" "-e" "2" "down"; }
 
-    Mod+O repeat=false { toggle-overview; }
+    Mod+O hotkey-overlay-title="Toggle Overview Mode" repeat=false { toggle-overview; }
 
     Mod+Q { close-window; }
 
