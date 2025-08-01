@@ -187,6 +187,18 @@ layer-rule {
 }
 
 layer-rule {
+    match namespace="avizo"
+    shadow {
+        on
+        softness 40
+        spread 5
+        offset x=0 y=5
+        draw-behind-window true
+        color "#00000064"
+    }
+}
+
+layer-rule {
     match namespace="swaync-notification-window"
     block-out-from "screen-capture"
 }
@@ -233,15 +245,11 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"kitty$"#
-    default-column-width {proportion 0.5;}
-}
-
-window-rule {
     match app-id=r#"^neovide$"#
     match app-id=r#"^zed$"#
     match app-id=r#"^jetbrains-idea$"#
     match app-id=r#"^codium$"#
+    match app-id=r#"^kitty$"#
     
     open-on-workspace "1"
     open-focused true
@@ -260,6 +268,7 @@ window-rule {
 
 window-rule {
     match app-id=r#"org.pwmt.zathura"#
+    match app-id=r#"com.github.johnfactotum.Foliate"#
 
     open-on-workspace "3"
     open-focused true
@@ -268,9 +277,15 @@ window-rule {
 
 window-rule {
     match app-id=r#"^com.obsproject.Studio$"#
+    match app-id=r#"^vesktop$"#
 
     open-on-workspace "4"
     open-focused true
+}
+
+window-rule {
+    match app-id=r#"kitty$"#
+    default-column-width {proportion 0.5;}
 }
 
 window-rule {
