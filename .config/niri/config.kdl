@@ -331,9 +331,9 @@ binds {
 
     XF86Calculator  hotkey-overlay-title="Open Calculator: galculator"  repeat=false    { spawn "galculator"; }
 
-    XF86AudioRaiseVolume    allow-when-locked=true  { spawn "volume_up"; }
-    XF86AudioLowerVolume    allow-when-locked=true  { spawn "volumectl" "-b" "-u" "-d" "down"; }
-    XF86AudioMute           allow-when-locked=true  { spawn "volumectl" "-d" "toggle-mute"; }
+    XF86AudioRaiseVolume    allow-when-locked=true  { spawn "volumectl" "-b" "-u" "up"; }
+    XF86AudioLowerVolume    allow-when-locked=true  { spawn "volumectl" "-b" "-u" "down"; }
+    XF86AudioMute           allow-when-locked=true  { spawn "volumectl" "toggle-mute"; }
     XF86AudioMicMute        allow-when-locked=true  { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
     XF86AudioNext   allow-when-locked=true  { spawn "playerctl" "next"; }
@@ -341,10 +341,10 @@ binds {
     XF86AudioPlay   allow-when-locked=true  { spawn "playerctl" "play-pause"; }
     XF86AudioPrev   allow-when-locked=true  { spawn "playerctl" "previous"; }
 
-    Mod+XF86AudioRaiseVolume    allow-when-locked=true  { spawn "lightctl" "-d" "-e" "2" "up"; }
-    Mod+XF86AudioLowerVolume    allow-when-locked=true  { spawn "lightctl" "-d" "-e" "2" "down"; }
-    XF86MonBrightnessUp         allow-when-locked=true  { spawn "lightctl" "-d" "-e" "2" "up"; }
-    XF86MonBrightnessDown       allow-when-locked=true  { spawn "lightctl" "-d" "-e" "2" "down"; }
+    Mod+XF86AudioRaiseVolume    allow-when-locked=true  { spawn "lightctl" "-e" "2" "up"; }
+    Mod+XF86AudioLowerVolume    allow-when-locked=true  { spawn "lightctl" "-e" "2" "down"; }
+    XF86MonBrightnessUp         allow-when-locked=true  { spawn "lightctl" "-e" "2" "up"; }
+    XF86MonBrightnessDown       allow-when-locked=true  { spawn "lightctl" "-e" "2" "down"; }
 
     Mod+O hotkey-overlay-title="Toggle Overview Mode" repeat=false { toggle-overview; }
 
