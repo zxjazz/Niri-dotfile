@@ -162,9 +162,9 @@ case "$dev_type" in
 	sink)
 		if [ "$muted" = 'true' ]; then
 			image='volume_muted'
-		elif [ "$volume" -le 33 ]; then
+		elif [ "$volume" -le 50 ]; then
 			image='volume_low'
-		elif [ "$volume" -le 66 ]; then
+		elif [ "$volume" -le 100 ]; then
 			image='volume_medium'
 		else
 			image='volume_high'
