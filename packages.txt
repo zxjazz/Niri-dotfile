@@ -49,3 +49,4 @@ otf-commit-mono-nerd
 wtype
 gnome-keyring
 wf-osk-git
+trash-cli
