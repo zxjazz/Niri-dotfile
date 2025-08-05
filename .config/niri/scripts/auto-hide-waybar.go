@@ -13,8 +13,7 @@ import (
 )
 
 var waybarPid int
-var SOCKET_PATH = os.Getenv("NIRI_SOCKET")
-var overviewMode = false
+var socketPath = os.Getenv("NIRI_SOCKET")
 
 const STATE_FILE = "/tmp/waybar-visible"
 
@@ -74,7 +73,7 @@ func hideWaybar() {
 	}
 }
 
-func AutoToggle(conn net.Conn, eventType string) {
+func AutoToggle(conn net.Conn) {
 	result := sendEvent(conn, "FocusedWindow")
 	if result == nil {
 		return
@@ -114,14 +113,14 @@ func sendEvent(conn net.Conn, eventType string) []byte {
 }
 
 func main() {
-	streamConn, err := net.Dial("unix", SOCKET_PATH)
+	streamConn, err := net.Dial("unix", socketPath)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "Dial error: ", err)
 		os.Exit(1)
 	}
 	defer streamConn.Close()
 
-	eventConn, err := net.Dial("unix", SOCKET_PATH)
+	eventConn, err := net.Dial("unix", socketPath)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "Dial error", err)
 		return
@@ -135,6 +134,7 @@ func main() {
 
 	scanner := bufio.NewScanner(streamConn)
 
+	var overviewMode = false
 	for scanner.Scan() {
 		line := scanner.Text()
 
@@ -154,10 +154,10 @@ func main() {
 			if overviewMode {
 				showWaybar()
 			} else {
-				AutoToggle(eventConn, "FocusedWindow")
+				AutoToggle(eventConn)
 			}
 		} else if !overviewMode && (event[workspaceActiveWindowChanged] != nil || event[windowOpenedOrChanged] != nil || event[workspaceActivated] != nil) {
-			AutoToggle(eventConn, "FocusedWindow")
+			AutoToggle(eventConn)
 		}
 
 	}
