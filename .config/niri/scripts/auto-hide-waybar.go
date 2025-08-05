@@ -4,232 +4,162 @@ import (
 	"bufio"
 	"encoding/json"
 	"fmt"
-	"log"
+	"net"
 	"os"
 	"os/exec"
+	"strconv"
+	"strings"
+	"syscall"
 )
 
-type Workspace struct {
-	ActiveWindowID int    `json:"active_window_id"`
-	ID             int    `json:"id"`
-	IDX            int    `json:"idx"`
-	IsActive       bool   `json:"is_active"`
-	IsFocused      bool   `json:"is_focused"`
-	IsUrgent       bool   `json:"is_urgent"`
-	Name           string `json:"name"`
-	Output         string `json:"output"`
-}
+var waybarPid int
+var SOCKET_PATH = os.Getenv("NIRI_SOCKET")
+var overviewMode = false
 
-type Window struct {
-	ID          int    `json:"id"`
-	Title       string `json:"title"`
-	AppID       string `json:"app_id"`
-	PID         int    `json:"pid"`
-	WorkspaceID int    `json:"workspace_id"`
-	IsFocused   bool   `json:"is_focused"`
-	IsFloating  bool   `json:"is_floating"`
-	IsUrgent    bool   `json:"is_urgent"`
-}
+const STATE_FILE = "/tmp/waybar-visible"
 
-func getCurrentWorkspace() (*Workspace, error) {
-	cmd := exec.Command("niri", "msg", "--json", "workspaces")
-	output, err := cmd.Output()
+const (
+	windowOpenedOrChanged        = "WindowOpenedOrChanged"
+	workspaceActiveWindowChanged = "WorkspaceActiveWindowChanged"
+	workspaceActivated           = "WorkspaceActivated"
+	overviewOpenedOrClosed       = "OverviewOpenedOrClosed"
+)
+
+func init() {
+	out, err := exec.Command("pgrep", "waybar").Output()
 	if err != nil {
-		return nil, fmt.Errorf("failed to get workspace: %v", err)
+		fmt.Fprintln(os.Stderr, "Waybar not found error: ", err)
+		os.Exit(1)
 	}
-
-	var workspaces []*Workspace
-	if err := json.Unmarshal(output, &workspaces); err != nil {
-		return nil, fmt.Errorf("failed to parse workspace JSON: %v", err)
-	}
-
-	for _, ws := range workspaces {
-		if ws.IsActive {
-			return ws, nil
-		}
-	}
-
-	return nil, fmt.Errorf("no active workspace")
-}
-
-func getWindows() ([]*Window, error) {
-	cmd := exec.Command("niri", "msg", "--json", "windows")
-	output, err := cmd.Output()
+	file, err := os.Create(STATE_FILE)
 	if err != nil {
-		return nil, fmt.Errorf("failed to count windows: %v", err)
+		fmt.Fprintln(os.Stderr, "Create file error: ", err)
 	}
+	file.Close()
 
-	var windows []*Window
-	if err := json.Unmarshal(output, &windows); err != nil {
-		return nil, fmt.Errorf("failed to parse windows JSON: %v", err)
-	}
-	return windows, nil
-}
+	pids := strings.Split(string(out), "\n")
+	pids = pids[:len(pids)-1]
 
-func countWindowsInWorkspaceID(workspaceID int) (int, error) {
-	windows, err := getWindows()
+	waybarPid, err = strconv.Atoi(pids[0])
+	fmt.Println("Waybar PID:", waybarPid)
 	if err != nil {
-		return -1, err
+		fmt.Fprintln(os.Stderr, "PID parse error: ", err)
+		os.Exit(0)
 	}
-
-	count := 0
-	for _, window := range windows {
-		if window.WorkspaceID == workspaceID {
-			count++
-		}
-	}
-
-	return count, nil
 }
 
-func countTiledWindowsInWorkspaceID(workspaceID int) (int, error) {
-	windows, err := getWindows()
-	if err != nil {
-		return -1, err
+func toggleWaybar() {
+	if err := syscall.Kill(waybarPid, syscall.SIGUSR1); err != nil {
+		fmt.Fprintln(os.Stderr, "Waybar toggle error: ", err)
 	}
-
-	count := 0
-
-	for _, window := range windows {
-		if window.WorkspaceID == workspaceID && window.IsFloating == false {
-			count++
-		}
-	}
-
-	return count, nil
 }
 
-func countWindowInCurrentWorkspace() (int, error) {
-	workspace, err := getCurrentWorkspace()
-	if err != nil {
-		return -1, err
-	}
-
-	count, err := countTiledWindowsInWorkspaceID(workspace.ID)
-	if err != nil {
-		return -1, err
-	}
-	return count, nil
-}
-
-func toggleWaybar() error {
-	return exec.Command("killall", "-SIGUSR1", "waybar").Run()
-}
-
-const stateFile = "/tmp/waybar-visible"
-const lockFile = "/tmp/waybar-lock"
-
-func showWaybar() error {
-	if _, err := os.Stat(stateFile); os.IsNotExist(err) {
-		err := toggleWaybar()
+func showWaybar() {
+	if _, err := os.Stat(STATE_FILE); os.IsNotExist(err) {
+		toggleWaybar()
+		file, err := os.Create(STATE_FILE)
 		if err != nil {
-			return err
+			fmt.Fprintln(os.Stderr, "Create file error: ", err)
 		}
-		file, err := os.Create(stateFile)
-		if err != nil {
-			return err
-		}
-		defer file.Close()
+		file.Close()
 	}
-	return nil
 }
 
-func hideWaybar() error {
-	if _, err := os.Stat(stateFile); err == nil {
-		err := toggleWaybar()
-		if err != nil {
-			return err
-		}
-		if err := os.Remove(stateFile); err != nil {
-			return err
+func hideWaybar() {
+	if _, err := os.Stat(STATE_FILE); err == nil {
+		toggleWaybar()
+		if err := os.Remove(STATE_FILE); err != nil {
+			fmt.Fprintln(os.Stderr, "Delete file error: ", err)
 		}
 	}
-	return nil
 }
 
-func showOrHideWaybarBasedOnWindows() error {
-	count, err := countWindowInCurrentWorkspace()
+func AutoToggle(conn net.Conn, eventType string) {
+	result := sendEvent(conn, "FocusedWindow")
+	if result == nil {
+		return
+	}
+	var raw map[string]any
+	if err := json.Unmarshal(result, &raw); err != nil {
+		fmt.Fprintln(os.Stderr, "Unmarshal error: ", err)
+		return
+	}
+	fwOk := raw["Ok"].(map[string]any)
+	if fwOk["FocusedWindow"] == nil {
+		showWaybar()
+		return
+	}
+	fw := fwOk["FocusedWindow"].(map[string]any)
+	isFloating := fw["is_floating"].(bool)
+	if isFloating {
+		showWaybar()
+	} else {
+		hideWaybar()
+	}
+}
+
+func sendEvent(conn net.Conn, eventType string) []byte {
+	eventType = "\"" + eventType + "\"\n"
+	if _, err := conn.Write([]byte(eventType)); err != nil {
+		fmt.Fprintln(os.Stderr, "Write error: ", err)
+		return nil
+	}
+	buf := make([]byte, 4096)
+	n, err := conn.Read(buf)
 	if err != nil {
-		return err
+		fmt.Fprintln(os.Stderr, "Read error: ", err)
+		return nil
 	}
-	if count == 0 {
-		return showWaybar()
-	}
-	return hideWaybar()
-}
-
-func waybarLocked() bool {
-	if _, err := os.Stat(lockFile); err == nil {
-		return true
-	}
-	return false
+	return buf[:n]
 }
 
 func main() {
-	overviewMode := false
-
-	if err := showOrHideWaybarBasedOnWindows(); err != nil {
-		log.Println(err)
-	}
-
-	cmd := exec.Command("niri", "msg", "--json", "event-stream")
-	stdout, err := cmd.StdoutPipe()
+	streamConn, err := net.Dial("unix", SOCKET_PATH)
 	if err != nil {
-		log.Fatal(err)
+		fmt.Fprintln(os.Stderr, "Dial error: ", err)
+		os.Exit(1)
 	}
-	if err := cmd.Start(); err != nil {
-		log.Fatal(err)
+	defer streamConn.Close()
+
+	eventConn, err := net.Dial("unix", SOCKET_PATH)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "Dial error", err)
+		return
+	}
+	defer eventConn.Close()
+
+	if _, err = streamConn.Write([]byte("\"EventStream\"\n")); err != nil {
+		fmt.Fprintln(os.Stderr, "Write error: ", err)
+		return
 	}
 
-	scanner := bufio.NewScanner(stdout)
+	scanner := bufio.NewScanner(streamConn)
+
 	for scanner.Scan() {
 		line := scanner.Text()
+
 		var event map[string]any
-		if err := json.Unmarshal([]byte(line), &event); err != nil {
+		if err = json.Unmarshal([]byte(line), &event); err != nil {
+			fmt.Fprintln(os.Stderr, "Unmarshal error: ", err)
 			continue
 		}
 
-		allowedEvents := map[string]bool{
-			"WindowFocusChanged":    true,
-			"WindowClosed":          true,
-			"WindowOpenedOrChanged": true,
-			"WorkspaceActivated":    true,
-		}
-
-		for eventType, eventValue := range event {
-			if !waybarLocked() {
-				if allowedEvents[eventType] && !overviewMode {
-					if err := showOrHideWaybarBasedOnWindows(); err != nil {
-						log.Println(err)
-					}
-					break
-				} else if eventType == "OverviewOpenedOrClosed" {
-					overview, ok := eventValue.(map[string]any)
-					if !ok {
-						log.Println("eventValue is not a map[string]any")
-						break
-					}
-
-					isOpen, exists := overview["is_open"]
-					if !exists {
-						log.Println("is_open key is missing")
-						break
-					}
-
-					overviewMode, ok = isOpen.(bool)
-					if !ok {
-						log.Println("is_open is not a bool")
-						break
-					}
-
-					if overviewMode {
-						_ = showWaybar()
-					} else {
-						_ = showOrHideWaybarBasedOnWindows()
-					}
-				}
+		if event[overviewOpenedOrClosed] != nil {
+			var raw map[string]any
+			if err := json.Unmarshal([]byte(line), &raw); err != nil {
+				fmt.Fprintln(os.Stderr, "Unmarshal error: ", err)
+				continue
 			}
+			overviewMode = (raw["OverviewOpenedOrClosed"].(map[string]any))["is_open"].(bool)
+			if overviewMode {
+				showWaybar()
+			} else {
+				AutoToggle(eventConn, "FocusedWindow")
+			}
+		} else if !overviewMode && (event[workspaceActiveWindowChanged] != nil || event[windowOpenedOrChanged] != nil || event[workspaceActivated] != nil) {
+			AutoToggle(eventConn, "FocusedWindow")
 		}
+
 	}
 
 }
