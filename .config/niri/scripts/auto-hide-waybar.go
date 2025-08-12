@@ -88,13 +88,13 @@ func AutoToggle(conn net.Conn) {
 		showWaybar()
 		return
 	}
-	fw := fwOk["FocusedWindow"].(map[string]any)
-	isFloating := fw["is_floating"].(bool)
-	if isFloating {
-		showWaybar()
-	} else {
-		hideWaybar()
-	}
+	// fw := fwOk["FocusedWindow"].(map[string]any)
+	// isFloating := fw["is_floating"].(bool)
+	// if isFloating {
+	// 	showWaybar()
+	// } else {
+	hideWaybar()
+	// }
 }
 
 func sendEvent(conn net.Conn, eventType string) []byte {
