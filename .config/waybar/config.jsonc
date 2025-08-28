@@ -100,8 +100,8 @@
             "default": ["󰕿", "󰖀", "󰕾"],
         },
         "on-click": "pamixer --toggle-mute",
-        "on-scroll-up": "pamixer --allow-boost --set-limit 150 --increase 2",
-        "on-scroll-down": "pamixer --allow-boost --set-limit 150 --decrease 2",
+        "on-scroll-up": "pamixer --allow-boost --set-limit 120 --increase 2",
+        "on-scroll-down": "pamixer --allow-boost --set-limit 120 --decrease 2",
         "tooltip": true,
         "max-volume": 150
     },
@@ -123,7 +123,7 @@
     "custom/power": {
         "format": "⏼",
         "tooltip": false,
-        "on-click": "wlogout -c 15 -b 6 -m 400"
+        "on-click": "wlogout -c 15 -b 6 -T 400 -B 400"
     },
     "wlr/taskbar": {
         "format": "{icon}",

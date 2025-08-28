@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if pgrep -af "/home/rickin/.local/share/bin/decrease-brightness" | grep -v "$$" > /dev/null; then
+    exit
+fi
+
+current_value=$(($(brightnessctl get -m)*100/$(brightnessctl max)))
+
+if [[ $current_value -lt 1 ]]; then
+    exit
+fi
+
+for i in {1..10}; do
+    brightnessctl set 1%- -e 2 -q
+    sleep 0.02
+done

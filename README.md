@@ -39,7 +39,7 @@ https://github.com/user-attachments/assets/91898320-7f52-4a83-97ac-d512cce48e85
 
 ### Clone the repo
 ```bash
-git clone https://github.com/rickinshah/niri-dotfiles ~/.dotfiles
+git clone https://github.com/rickinshah/0xNiri.git ~/.dotfiles
 cd ~/.dotfiles
 ```
 

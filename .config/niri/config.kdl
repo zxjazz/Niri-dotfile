@@ -261,6 +261,7 @@ window-rule {
     match app-id=r#"zen$"#
     match app-id=r#"chromium$"#
     match app-id=r#"librewolf$"#
+    match app-id=r#"google-chrome$"#
 
     open-on-workspace "2"
     open-focused true
@@ -317,11 +318,12 @@ binds {
     Mod+A           hotkey-overlay-title="Run an application: fuzzel"   repeat=false    { spawn "bash" "-c" "pkill fuzzel || fuzzel"; }
     Mod+E           hotkey-overlay-title="Show emojis: fuzzel"          repeat=false    { spawn "bash" "-c" "pkill fuzzel || fuzzel-emoji"; }
     Mod+Shift+V     hotkey-overlay-title="Clipboard manager: cliphist"  repeat=false    { spawn "bash" "-c" "pkill fuzzel || cliphist-fuzzel-img"; }
-    Mod+Backspace   hotkey-overlay-title="Session Manager: wlogout"     repeat=false    { spawn "bash" "-c" "pkill wlogout || wlogout -c 15 -b 6 -m 400"; }
+    Mod+Backspace   hotkey-overlay-title="Session Manager: wlogout"     repeat=false    { spawn "bash" "-c" "pkill wlogout || wlogout -c 15 -b 6 -T 400 -B 400"; }
 
     Mod+N           hotkey-overlay-title="Toggle Notification: swaync"  repeat=false    { spawn "swaync-client" "-t"; }
     Mod+Space       hotkey-overlay-title="Toggle bar: waybar"           repeat=false    { spawn "toggle-waybar"; }
-    Mod+Shift+Space hotkey-overlay-title="Lock bar: waybar"             repeat=false    { spawn "lock-waybar"; }
+
+    Mod+I hotkey-overlay-title="Settings: open config" repeat=false { spawn "neovide" ".config/niri"; }
 
     Mod+F1  hotkey-overlay-title="Open Text editor: neovide"        repeat=false    { spawn "neovide"; }
     Mod+F2  hotkey-overlay-title="Open Browser: zen"                repeat=false    { spawn "zen-browser"; }
@@ -332,20 +334,20 @@ binds {
 
     XF86Calculator  hotkey-overlay-title="Open Calculator: galculator"  repeat=false    { spawn "galculator"; }
 
-    XF86AudioRaiseVolume    allow-when-locked=true  { spawn "volumectl" "-b" "-u" "up"; }
-    XF86AudioLowerVolume    allow-when-locked=true  { spawn "volumectl" "-b" "-u" "down"; }
-    XF86AudioMute           allow-when-locked=true  { spawn "volumectl" "toggle-mute"; }
-    XF86AudioMicMute        allow-when-locked=true  { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    XF86AudioRaiseVolume    allow-when-locked=true  { spawn "pamixer" "--allow-boost" "--set-limit" "120" "--increase" "5"; }
+    XF86AudioLowerVolume    allow-when-locked=true  { spawn "pamixer" "--allow-boost" "--set-limit" "120" "--decrease" "5"; }
+    XF86AudioMute           allow-when-locked=true  { spawn "pamixer" "--toggle-mute"; }
+    XF86AudioMicMute        allow-when-locked=true  { spawn "pamixer" "--default-source" "--toggle-mute"; }
 
     XF86AudioNext   allow-when-locked=true  { spawn "playerctl" "next"; }
-    XF86AudioPause  allow-when-locked=true  { spawn "playerctl" "play-pause"; }
-    XF86AudioPlay   allow-when-locked=true  { spawn "playerctl" "play-pause"; }
+    XF86AudioPause  allow-when-locked=true  { spawn "playerctl" "pause"; }
+    XF86AudioPlay   allow-when-locked=true  { spawn "playerctl" "play"; }
     XF86AudioPrev   allow-when-locked=true  { spawn "playerctl" "previous"; }
 
-    Mod+XF86AudioRaiseVolume    allow-when-locked=true  { spawn "lightctl" "-e" "2" "up"; }
-    Mod+XF86AudioLowerVolume    allow-when-locked=true  { spawn "lightctl" "-e" "2" "down"; }
-    XF86MonBrightnessUp         allow-when-locked=true  { spawn "lightctl" "-e" "2" "up"; }
-    XF86MonBrightnessDown       allow-when-locked=true  { spawn "lightctl" "-e" "2" "down"; }
+    Mod+XF86AudioRaiseVolume   repeat=false allow-when-locked=true   { spawn "increase-brightness"; }
+    Mod+XF86AudioLowerVolume   repeat=false allow-when-locked=true   { spawn "decrease-brightness"; }
+    XF86MonBrightnessUp        repeat=false allow-when-locked=true   { spawn "increase-brightness"; }
+    XF86MonBrightnessDown      repeat=false allow-when-locked=true   { spawn "decrease-brightness"; }
 
     Mod+O hotkey-overlay-title="Toggle Overview Mode" repeat=false { toggle-overview; }
 
