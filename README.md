@@ -27,7 +27,7 @@ https://github.com/user-attachments/assets/91898320-7f52-4a83-97ac-d512cce48e85
 | Launcher | [`fuzzel`](https://codeberg.org/dnkl/fuzzel) |
 | Power Menu | [`wlogout`](https://github.com/ArtsyMacaw/wlogout) |
 | Screen Locker | [`gtklock`](https://github.com/jovanlanik/gtklock) |
-| On-Screen Display | [`avizo`](https://github.com/heyjuvi/avizo) |
+| On-Screen Display | [`syshud`](https://github.com/System64fumo/syshud) |
 | File Manager | [`nautilus`](https://gitlab.gnome.org/GNOME/nautilus) / [`yazi`](https://github.com/sxyazi/yazi) |
 | Shell | [`fish`](https://github.com/fish-shell/fish-shell) |
 | Display Manager | [`ly`](https://github.com/fairyglade/ly) |
@@ -102,7 +102,7 @@ Custom unit files are stored in: `~/.config/systemd/user`
 
 | Service | Purpose |
 | - | - |
-| `avizo.service` | OSD for volume/brightness |
+| `syshud.service` | OSD for volume/brightness |
 | `cliphist.service` | Clipboard Manager |
 | `polkit-gnome.service` | Polkit auth agent |
 | `swaybg.service` | Blur Wallpaper(overview mode) |
@@ -128,7 +128,7 @@ systemctl --user add-wants niri.service <service>.service
 For example:
 ```fish
 systemctl --user add-wants niri.service waybar.service
-systemctl --user add-wants niri.service avizo.service
+systemctl --user add-wants niri.service syshud.service
 ```
 
 ## Credits
