@@ -61,7 +61,7 @@
     "backlight": {
         "tooltip": false,
         "format": "{icon} {percent}%",
-        "format-icons": ["☀"],
+        "format-icons": ["󰃠"],
         "on-scroll-up": "brightnessctl --exponent=2 set 2%+",
         "on-scroll-down": "brightnessctl --exponent=2 set 2%-"
     },
