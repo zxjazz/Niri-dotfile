@@ -100,8 +100,8 @@
             "default": ["󰕿", "󰖀", "󰕾"],
         },
         "on-click": "pamixer --toggle-mute",
-        "on-scroll-up": "pamixer --allow-boost --set-limit 120 --increase 2",
-        "on-scroll-down": "pamixer --allow-boost --set-limit 120 --decrease 2",
+        "on-scroll-up": "pamixer --increase 2",
+        "on-scroll-down": "pamixer --decrease 2",
         "tooltip": true,
         "max-volume": 150
     },

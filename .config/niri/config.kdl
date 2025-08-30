@@ -334,8 +334,8 @@ binds {
 
     XF86Calculator  hotkey-overlay-title="Open Calculator: galculator"  repeat=false    { spawn "galculator"; }
 
-    XF86AudioRaiseVolume    allow-when-locked=true  { spawn "pamixer" "--allow-boost" "--set-limit" "120" "--increase" "5"; }
-    XF86AudioLowerVolume    allow-when-locked=true  { spawn "pamixer" "--allow-boost" "--set-limit" "120" "--decrease" "5"; }
+    XF86AudioRaiseVolume    allow-when-locked=true  { spawn "pamixer" "--increase" "5"; }
+    XF86AudioLowerVolume    allow-when-locked=true  { spawn "pamixer" "--decrease" "5"; }
     XF86AudioMute           allow-when-locked=true  { spawn "pamixer" "--toggle-mute"; }
     XF86AudioMicMute        allow-when-locked=true  { spawn "pamixer" "--default-source" "--toggle-mute"; }
 

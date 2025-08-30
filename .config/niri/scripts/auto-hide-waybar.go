@@ -88,6 +88,7 @@ func AutoToggle(conn net.Conn) {
 		showWaybar()
 		return
 	}
+	/* Uncomment all the lines below to show waybar on focused floating window */
 	// fw := fwOk["FocusedWindow"].(map[string]any)
 	// isFloating := fw["is_floating"].(bool)
 	// if isFloating {
