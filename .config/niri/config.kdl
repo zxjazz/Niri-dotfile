@@ -325,11 +325,12 @@ binds {
 
     Mod+I hotkey-overlay-title="Settings: open config" repeat=false { spawn "neovide" ".config/niri"; }
 
-    Mod+F1  hotkey-overlay-title="Open Text editor: neovide"        repeat=false    { spawn "neovide"; }
-    Mod+F2  hotkey-overlay-title="Open Browser: zen"                repeat=false    { spawn "zen-browser"; }
-    Mod+F3  hotkey-overlay-title="Open File Manager: nautilus"      repeat=false    { spawn "nautilus"; }
-    Mod+F4  hotkey-overlay-title="Open OBS Studio: obs"             repeat=false    { spawn "obs"; }
-    Mod+T   hotkey-overlay-title="Open a Terminal: kitty"           repeat=false    { spawn "kitty"; }
+    Mod+Print   hotkey-overlay-title="Screen Recording: wf-recorder"    repeat=false    { spawn "screen-recording"; }
+    Mod+F1      hotkey-overlay-title="Open Text editor: neovide"        repeat=false    { spawn "neovide"; }
+    Mod+F2      hotkey-overlay-title="Open Browser: zen"                repeat=false    { spawn "zen-browser"; }
+    Mod+F3      hotkey-overlay-title="Open File Manager: nautilus"      repeat=false    { spawn "nautilus"; }
+    Mod+F4      hotkey-overlay-title="Open OBS Studio: obs"             repeat=false    { spawn "obs"; }
+    Mod+T       hotkey-overlay-title="Open a Terminal: kitty"           repeat=false    { spawn "kitty"; }
 
 
     XF86Calculator  hotkey-overlay-title="Open Calculator: galculator"  repeat=false    { spawn "galculator"; }
@@ -344,8 +345,8 @@ binds {
     XF86AudioPlay   allow-when-locked=true  { spawn "playerctl" "play"; }
     XF86AudioPrev   allow-when-locked=true  { spawn "playerctl" "previous"; }
 
-    Mod+XF86AudioRaiseVolume   repeat=false allow-when-locked=true   { spawn "increase-brightness"; }
-    Mod+XF86AudioLowerVolume   repeat=false allow-when-locked=true   { spawn "decrease-brightness"; }
+    Mod+XF86AudioRaiseVolume   repeat=false allow-when-locked=true   { spawn "pamixer" "--default-source" "--increase" "5"; }
+    Mod+XF86AudioLowerVolume   repeat=false allow-when-locked=true   { spawn "pamixer" "--default-source" "--decrease" "5"; }
     XF86MonBrightnessUp        repeat=false allow-when-locked=true   { spawn "increase-brightness"; }
     XF86MonBrightnessDown      repeat=false allow-when-locked=true   { spawn "decrease-brightness"; }
 

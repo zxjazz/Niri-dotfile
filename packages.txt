@@ -1,6 +1,8 @@
 niri
 waybar
 mugshot
+wf-recorder
+slurp
 wlogout
 wlsunset
 pacman-contrib
