@@ -120,6 +120,12 @@
         "on-click": "pkill wf-osk || wf-osk --height 200 -a bottom",
         "tooltip-format": "Virtual Keyboard"
     },
+    "custom/screenrecording": {
+        "format": "󰻂",
+        "tooltip-format": "Screen Recording",
+        "on-click": "screen-recording",
+        "on-click-right": "pkill -INT wf-recorder"
+    },
     "custom/power": {
         "format": "⏼",
         "tooltip": false,
@@ -190,7 +196,8 @@
         "orientation": "horizontal",
         "modules": [
             "custom/clipboard",
-            "custom/vkeyboard"
+            "custom/vkeyboard",
+            "custom/screenrecording"
         ]
     }
 }
