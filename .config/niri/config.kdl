@@ -140,7 +140,7 @@ layout {
 
 prefer-no-csd
 
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/Pictures/Screenshots/%Y-%m-%d-%H%M%S.png"
 // screenshot-path null
 
 animations {
@@ -315,44 +315,37 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
 
-    Mod+A           hotkey-overlay-title="Run an application: fuzzel"   repeat=false    { spawn "bash" "-c" "pkill fuzzel || fuzzel"; }
-    Mod+E           hotkey-overlay-title="Show emojis: fuzzel"          repeat=false    { spawn "bash" "-c" "pkill fuzzel || fuzzel-emoji"; }
-    Mod+Shift+V     hotkey-overlay-title="Clipboard manager: cliphist"  repeat=false    { spawn "bash" "-c" "pkill fuzzel || cliphist-fuzzel-img"; }
-    Mod+Backspace   hotkey-overlay-title="Session Manager: wlogout"     repeat=false    { spawn "bash" "-c" "pkill wlogout || wlogout -c 15 -b 6 -T 400 -B 400"; }
+    Mod+A           hotkey-overlay-title="Run an application: fuzzel"       repeat=false    { spawn "bash" "-c" "pkill fuzzel || fuzzel"; }
+    Mod+E           hotkey-overlay-title="Show emojis: fuzzel"              repeat=false    { spawn "bash" "-c" "pkill fuzzel || fuzzel-emoji"; }
+    Mod+Shift+V     hotkey-overlay-title="Clipboard manager: cliphist"      repeat=false    { spawn "bash" "-c" "pkill fuzzel || cliphist-fuzzel-img"; }
+    Mod+Backspace   hotkey-overlay-title="Session Manager: wlogout"         repeat=false    { spawn "bash" "-c" "pkill wlogout || wlogout -c 15 -b 6 -T 400 -B 400"; }
+    Mod+N           hotkey-overlay-title="Toggle Notification: swaync"      repeat=false    { spawn "swaync-client" "-t"; }
+    Mod+Space       hotkey-overlay-title="Toggle bar: waybar"               repeat=false    { spawn "toggle-waybar"; }
+    Mod+I           hotkey-overlay-title="Settings: open config"            repeat=false    { spawn "neovide" ".config/niri"; }
+    Mod+Print       hotkey-overlay-title="Screen Recording: wf-recorder"    repeat=false    { spawn "screen-recording"; }
+    Mod+F1          hotkey-overlay-title="Open Text editor: neovide"        repeat=false    { spawn "neovide"; }
+    Mod+F2          hotkey-overlay-title="Open Browser: zen"                repeat=false    { spawn "zen-browser"; }
+    Mod+F3          hotkey-overlay-title="Open File Manager: nautilus"      repeat=false    { spawn "nautilus"; }
+    Mod+F4          hotkey-overlay-title="Open OBS Studio: obs"             repeat=false    { spawn "obs"; }
+    Mod+T           hotkey-overlay-title="Open a Terminal: kitty"           repeat=false    { spawn "kitty"; }
+    Mod+O           hotkey-overlay-title="Toggle Overview Mode"             repeat=false    { toggle-overview; }
 
-    Mod+N           hotkey-overlay-title="Toggle Notification: swaync"  repeat=false    { spawn "swaync-client" "-t"; }
-    Mod+Space       hotkey-overlay-title="Toggle bar: waybar"           repeat=false    { spawn "toggle-waybar"; }
+    XF86Calculator          hotkey-overlay-title="Open Calculator: galculator"                          repeat=false    { spawn "galculator"; }
+    XF86AudioRaiseVolume    hotkey-overlay-title="Increase Volume"              allow-when-locked=true                  { spawn "pamixer" "--increase" "5"; }
+    XF86AudioLowerVolume    hotkey-overlay-title="Decrease Volume"              allow-when-locked=true                  { spawn "pamixer" "--decrease" "5"; }
+    XF86AudioMute           hotkey-overlay-title="Mute Volume"                  allow-when-locked=true                  { spawn "pamixer" "--toggle-mute"; }
+    XF86AudioMicMute        hotkey-overlay-title="Mute Mic"                     allow-when-locked=true                  { spawn "pamixer" "--default-source" "--toggle-mute"; }
+    XF86AudioNext           hotkey-overlay-title="Next Audio"                   allow-when-locked=true                  { spawn "playerctl" "next"; }
+    XF86AudioPause          hotkey-overlay-title="Pause Audio"                  allow-when-locked=true                  { spawn "playerctl" "pause"; }
+    XF86AudioPlay           hotkey-overlay-title="Play Audio"                   allow-when-locked=true                  { spawn "playerctl" "play"; }
+    XF86AudioPrev           hotkey-overlay-title="Previous Audio"               allow-when-locked=true                  { spawn "playerctl" "previous"; }
+    XF86MonBrightnessUp     hotkey-overlay-title="Increase Brightness"          allow-when-locked=true  repeat=false    { spawn "increase-brightness"; }
+    XF86MonBrightnessDown   hotkey-overlay-title="Decrease Brightness"          allow-when-locked=true  repeat=false    { spawn "decrease-brightness"; }
 
-    Mod+I hotkey-overlay-title="Settings: open config" repeat=false { spawn "neovide" ".config/niri"; }
+    Mod+XF86AudioRaiseVolume    hotkey-overlay-title="Increase Mic Volume"      allow-when-locked=true  repeat=false    { spawn "pamixer" "--default-source" "--increase" "5"; }
+    Mod+XF86AudioLowerVolume    hotkey-overlay-title="Decrease Mic Volume"      allow-when-locked=true  repeat=false    { spawn "pamixer" "--default-source" "--decrease" "5"; }
 
-    Mod+Print   hotkey-overlay-title="Screen Recording: wf-recorder"    repeat=false    { spawn "screen-recording"; }
-    Mod+F1      hotkey-overlay-title="Open Text editor: neovide"        repeat=false    { spawn "neovide"; }
-    Mod+F2      hotkey-overlay-title="Open Browser: zen"                repeat=false    { spawn "zen-browser"; }
-    Mod+F3      hotkey-overlay-title="Open File Manager: nautilus"      repeat=false    { spawn "nautilus"; }
-    Mod+F4      hotkey-overlay-title="Open OBS Studio: obs"             repeat=false    { spawn "obs"; }
-    Mod+T       hotkey-overlay-title="Open a Terminal: kitty"           repeat=false    { spawn "kitty"; }
-
-
-    XF86Calculator  hotkey-overlay-title="Open Calculator: galculator"  repeat=false    { spawn "galculator"; }
-
-    XF86AudioRaiseVolume    allow-when-locked=true  { spawn "pamixer" "--increase" "5"; }
-    XF86AudioLowerVolume    allow-when-locked=true  { spawn "pamixer" "--decrease" "5"; }
-    XF86AudioMute           allow-when-locked=true  { spawn "pamixer" "--toggle-mute"; }
-    XF86AudioMicMute        allow-when-locked=true  { spawn "pamixer" "--default-source" "--toggle-mute"; }
-
-    XF86AudioNext   allow-when-locked=true  { spawn "playerctl" "next"; }
-    XF86AudioPause  allow-when-locked=true  { spawn "playerctl" "pause"; }
-    XF86AudioPlay   allow-when-locked=true  { spawn "playerctl" "play"; }
-    XF86AudioPrev   allow-when-locked=true  { spawn "playerctl" "previous"; }
-
-    Mod+XF86AudioRaiseVolume   repeat=false allow-when-locked=true   { spawn "pamixer" "--default-source" "--increase" "5"; }
-    Mod+XF86AudioLowerVolume   repeat=false allow-when-locked=true   { spawn "pamixer" "--default-source" "--decrease" "5"; }
-    XF86MonBrightnessUp        repeat=false allow-when-locked=true   { spawn "increase-brightness"; }
-    XF86MonBrightnessDown      repeat=false allow-when-locked=true   { spawn "decrease-brightness"; }
-
-    Mod+O hotkey-overlay-title="Toggle Overview Mode" repeat=false { toggle-overview; }
-
-    Mod+Q { close-window; }
+    Mod+Q           { close-window; }
 
     Mod+Left        { focus-column-left; }
     Mod+Down        { focus-window-down; }
@@ -441,17 +434,14 @@ binds {
     Mod+BracketRight { consume-or-expel-window-right; }
 
 
-    Mod+R { switch-preset-column-width; }
+    Mod+R       { switch-preset-column-width; }
     Mod+Shift+R { switch-preset-window-height; }
-    Mod+Ctrl+R { reset-window-height; }
-    Mod+F { maximize-column; }
+    Mod+Ctrl+R  { reset-window-height; }
+    Mod+F       { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
-
-    Mod+Ctrl+F { expand-column-to-available-width; }
-
-    Mod+C { center-column; }
-
-    Mod+Ctrl+C { center-visible-columns; }
+    Mod+Ctrl+F  { expand-column-to-available-width; }
+    Mod+C       { center-column; }
+    Mod+Ctrl+C  { center-visible-columns; }
 
     Mod+Minus { set-column-width "-10%"; }
     Mod+Equal { set-column-width "+10%"; }
@@ -467,13 +457,12 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
-    Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
+    Print       { screenshot; }
+    Ctrl+Print  { screenshot-screen; }
+    Alt+Print   { screenshot-window; }
 
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     Ctrl+Alt+Delete { quit; }
-
-    Mod+Shift+P { power-off-monitors; }
+    Mod+Shift+P     { power-off-monitors; }
 }
