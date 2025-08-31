@@ -1,6 +1,5 @@
 niri
 waybar
-mugshot
 wf-recorder
 slurp
 wlogout
@@ -42,12 +41,9 @@ fastfetch
 eza
 nautilus
 mpv
-gnome-tweaks
 bat
-kdeconnect
 catppuccin-cursors-mocha
 mpv-mpris
-sddm
 gtk-engine-murrine
 sassc
 dconf
@@ -64,5 +60,4 @@ otf-commit-mono-nerd
 wtype
 gnome-keyring
 wf-osk-git
-trash-cli
 otf-font-awesome

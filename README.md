@@ -62,6 +62,11 @@ cd ~/.dotfiles
 yay -S --needed --noconfirm $(cat packages.txt)
 ```
 
+##### Install optional packages
+```
+yay -S --needed --noconfirm $(cat optional-packages.txt)
+```
+
 #### 2. Set `fish` as default shell
 ```bash
 chsh -s /bin/fish
@@ -91,6 +96,26 @@ fish_add_path -a ~/.local/share/bin
 #### 5. Start the essential startup applications. [Refer to this section](#startup-applications)
 
 #### 6. `Logout` or `Restart`
+
+### Post Installation [Optional]
+
+#### Set Wallpaper
+```fish
+set-wallpaper ~/.config/niri/wallpaper.jpg
+```
+
+#### Customize `fish` shell
+```fish
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+fisher install IlanCosman/tide@v6
+```
+
+#### Install `niri-screen-time`
+```fish
+sudo pacman -S go
+go install github.com/probeldev/niri-screen-time@latest
+fish_add_path -a $(go env GOPATH)
+```
 
 ## Startup Applications
 
