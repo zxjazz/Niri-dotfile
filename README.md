@@ -63,7 +63,7 @@ yay -S --needed --noconfirm $(cat packages.txt)
 ```
 
 ##### Install optional packages
-```
+```bash
 yay -S --needed --noconfirm $(cat optional-packages.txt)
 ```
 
