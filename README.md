@@ -119,7 +119,7 @@ fish_add_path -a $(go env GOPATH)
 
 #### Set profile picture in `gtklock`
 ```fish
-mv ~/.dotfiles/.face ~/.face
+mv ~/.dotfiles/.face.jpg ~/.face
 ```
 
 ## Startup Applications
