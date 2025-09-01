@@ -123,7 +123,7 @@
     "custom/screenrecording": {
         "format": "󰻂",
         "tooltip-format": "Screen Recording",
-        "on-click": "screen-recording",
+        "on-click": "pkill fuzzel || screen-recording",
         "on-click-right": "pkill -INT wf-recorder"
     },
     "custom/power": {

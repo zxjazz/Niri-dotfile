@@ -117,6 +117,11 @@ go install github.com/probeldev/niri-screen-time@latest
 fish_add_path -a $(go env GOPATH)
 ```
 
+#### Set profile picture in `gtklock`
+```fish
+mv ~/.dotfiles/.face ~/.face
+```
+
 ## Startup Applications
 
 Startup applications are managed using `systemd` — as recommended in [official Niri documentation](https://github.com/YaLTeR/niri/wiki/Example-systemd-Setup)
