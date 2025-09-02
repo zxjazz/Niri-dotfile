@@ -114,7 +114,7 @@ fisher install IlanCosman/tide@v6
 ```fish
 sudo pacman -S go
 go install github.com/probeldev/niri-screen-time@latest
-fish_add_path -a $(go env GOPATH)
+fish_add_path -a $(go env GOPATH)/bin
 ```
 
 #### Set profile picture in `gtklock`
