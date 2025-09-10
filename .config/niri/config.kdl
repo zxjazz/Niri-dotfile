@@ -325,14 +325,14 @@ binds {
     Mod+Print       hotkey-overlay-title="Screen Recording: wf-recorder"    repeat=false    { spawn "screen-recording"; }
     Mod+F1          hotkey-overlay-title="Open Text editor: neovide"        repeat=false    { spawn "neovide"; }
     Mod+F2          hotkey-overlay-title="Open Browser: zen"                repeat=false    { spawn "zen-browser"; }
-    Mod+F3          hotkey-overlay-title="Open File Manager: nautilus"      repeat=false    { spawn "nautilus"; }
+    Mod+F3          hotkey-overlay-title="Open File Manager: thunar"      repeat=false    { spawn "thunar"; }
     Mod+F4          hotkey-overlay-title="Open OBS Studio: obs"             repeat=false    { spawn "obs"; }
     Mod+T           hotkey-overlay-title="Open a Terminal: kitty"           repeat=false    { spawn "kitty"; }
     Mod+O           hotkey-overlay-title="Toggle Overview Mode"             repeat=false    { toggle-overview; }
 
     XF86Calculator          hotkey-overlay-title="Open Calculator: galculator"                          repeat=false    { spawn "galculator"; }
-    XF86AudioRaiseVolume    hotkey-overlay-title="Increase Volume"              allow-when-locked=true                  { spawn "pamixer" "--increase" "5"; }
-    XF86AudioLowerVolume    hotkey-overlay-title="Decrease Volume"              allow-when-locked=true                  { spawn "pamixer" "--decrease" "5"; }
+    XF86AudioRaiseVolume    hotkey-overlay-title="Increase Volume"              allow-when-locked=true                  { spawn "pamixer" "--allow-boost" "--set-limit" "120" "--increase" "5"; }
+    XF86AudioLowerVolume    hotkey-overlay-title="Decrease Volume"              allow-when-locked=true                  { spawn "pamixer" "--allow-boost" "--set-limit" "120" "--decrease" "5"; }
     XF86AudioMute           hotkey-overlay-title="Mute Volume"                  allow-when-locked=true                  { spawn "pamixer" "--toggle-mute"; }
     XF86AudioMicMute        hotkey-overlay-title="Mute Mic"                     allow-when-locked=true                  { spawn "pamixer" "--default-source" "--toggle-mute"; }
     XF86AudioNext           hotkey-overlay-title="Next Audio"                   allow-when-locked=true                  { spawn "playerctl" "next"; }
