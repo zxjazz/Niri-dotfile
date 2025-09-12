@@ -2,6 +2,7 @@ window {
     background-image: url("../niri/wallpaper-blur.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     /* background-position: ; */
     /* background-color: #1e1e2e; */
 }
