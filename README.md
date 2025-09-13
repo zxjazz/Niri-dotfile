@@ -28,7 +28,7 @@ https://github.com/user-attachments/assets/1590abcc-2be2-49b4-9ed3-ec0d947c69c7
 | Power Menu | [`wlogout`](https://github.com/ArtsyMacaw/wlogout) |
 | Screen Locker | [`gtklock`](https://github.com/jovanlanik/gtklock) |
 | On-Screen Display | [`syshud`](https://github.com/System64fumo/syshud) |
-| File Manager | [`nautilus`](https://gitlab.gnome.org/GNOME/nautilus) / [`yazi`](https://github.com/sxyazi/yazi) |
+| File Manager | [`thunar`](https://gitlab.xfce.org/xfce/thunar) / [`yazi`](https://github.com/sxyazi/yazi) |
 | Shell | [`fish`](https://github.com/fish-shell/fish-shell) |
 | Display Manager | [`ly`](https://github.com/fairyglade/ly) |
 
@@ -102,6 +102,11 @@ fish_add_path -a ~/.local/share/bin
 #### Set Wallpaper
 ```fish
 set-wallpaper ~/.config/niri/wallpaper.jpg
+```
+
+#### Set GTK Theme
+```fish
+gsettings set org.gnome.desktop.interface gtk-theme "'catppuccin-mocha-lavender-standard+default'"
 ```
 
 #### Customize `fish` shell

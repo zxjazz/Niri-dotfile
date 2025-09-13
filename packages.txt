@@ -21,6 +21,7 @@ syshud
 pamixer
 cliphist
 direnv
+catppuccin-gtk-theme-mocha
 xdg-desktop-portal-gnome
 papirus-icon-theme
 xdg-desktop-portal-gtk
