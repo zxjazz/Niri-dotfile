@@ -28,6 +28,7 @@ papirus-icon-theme
 xdg-desktop-portal-gtk
 polkit-kde-agent
 fish
+gpu-screen-recorder-gtk
 kitty
 fyi
 swaync
@@ -39,7 +40,7 @@ swayidle
 swaybg
 fastfetch
 eza
-nautilus
+thunar
 mpv
 bat
 catppuccin-cursors-mocha

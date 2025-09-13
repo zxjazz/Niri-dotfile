@@ -159,6 +159,10 @@ animations {
         spring damping-ratio=0.7 stiffness=200 epsilon=0.0001
     }
 
+    config-notification-open-close {
+        spring damping-ratio=0.7 stiffness=200 epsilon=0.0001
+    }
+
     overview-open-close {
         spring damping-ratio=0.7 stiffness=200 epsilon=0.0001
     }
@@ -166,6 +170,7 @@ animations {
     horizontal-view-movement {
         spring damping-ratio=0.7 stiffness=200 epsilon=0.0001
     }
+
     window-resize {
         spring damping-ratio=0.7 stiffness=200 epsilon=0.0001
     }
@@ -315,20 +320,20 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
 
-    Mod+A           hotkey-overlay-title="Run an application: fuzzel"       repeat=false    { spawn "bash" "-c" "pkill fuzzel || fuzzel"; }
-    Mod+E           hotkey-overlay-title="Show emojis: fuzzel"              repeat=false    { spawn "bash" "-c" "pkill fuzzel || fuzzel-emoji"; }
-    Mod+Shift+V     hotkey-overlay-title="Clipboard manager: cliphist"      repeat=false    { spawn "bash" "-c" "pkill fuzzel || cliphist-fuzzel-img"; }
-    Mod+Backspace   hotkey-overlay-title="Session Manager: wlogout"         repeat=false    { spawn "bash" "-c" "pkill wlogout || wlogout -c 15 -b 6 -T 400 -B 400"; }
-    Mod+N           hotkey-overlay-title="Toggle Notification: swaync"      repeat=false    { spawn "swaync-client" "-t"; }
-    Mod+Space       hotkey-overlay-title="Toggle bar: waybar"               repeat=false    { spawn "toggle-waybar"; }
-    Mod+I           hotkey-overlay-title="Settings: open config"            repeat=false    { spawn "neovide" ".config/niri"; }
-    Mod+Print       hotkey-overlay-title="Screen Recording: wf-recorder"    repeat=false    { spawn "screen-recording"; }
-    Mod+F1          hotkey-overlay-title="Open Text editor: neovide"        repeat=false    { spawn "neovide"; }
-    Mod+F2          hotkey-overlay-title="Open Browser: zen"                repeat=false    { spawn "zen-browser"; }
-    Mod+F3          hotkey-overlay-title="Open File Manager: thunar"      repeat=false    { spawn "thunar"; }
-    Mod+F4          hotkey-overlay-title="Open OBS Studio: obs"             repeat=false    { spawn "obs"; }
-    Mod+T           hotkey-overlay-title="Open a Terminal: kitty"           repeat=false    { spawn "kitty"; }
-    Mod+O           hotkey-overlay-title="Toggle Overview Mode"             repeat=false    { toggle-overview; }
+    Mod+A           hotkey-overlay-title="Run an application: fuzzel"               repeat=false    { spawn "bash" "-c" "pkill fuzzel || fuzzel"; }
+    Mod+E           hotkey-overlay-title="Show emojis: fuzzel"                      repeat=false    { spawn "bash" "-c" "pkill fuzzel || fuzzel-emoji"; }
+    Mod+Shift+V     hotkey-overlay-title="Clipboard manager: cliphist"              repeat=false    { spawn "bash" "-c" "pkill fuzzel || cliphist-fuzzel-img"; }
+    Mod+Backspace   hotkey-overlay-title="Session Manager: wlogout"                 repeat=false    { spawn "bash" "-c" "pkill wlogout || wlogout -c 15 -b 6 -T 400 -B 400"; }
+    Mod+N           hotkey-overlay-title="Toggle Notification: swaync"              repeat=false    { spawn "swaync-client" "-t"; }
+    Mod+Space       hotkey-overlay-title="Toggle bar: waybar"                       repeat=false    { spawn "toggle-waybar"; }
+    Mod+I           hotkey-overlay-title="Settings: open config"                    repeat=false    { spawn "neovide" ".config/niri"; }
+    Mod+Print       hotkey-overlay-title="Screen Recording: gpu-screen-recorder"    repeat=false    { spawn "gpu-screen-recorder-gtk"; }
+    Mod+F1          hotkey-overlay-title="Open Text editor: neovide"                repeat=false    { spawn "neovide"; }
+    Mod+F2          hotkey-overlay-title="Open Browser: zen"                        repeat=false    { spawn "zen-browser"; }
+    Mod+F3          hotkey-overlay-title="Open File Manager: thunar"                repeat=false    { spawn "thunar"; }
+    Mod+F4          hotkey-overlay-title="Open OBS Studio: obs"                     repeat=false    { spawn "obs"; }
+    Mod+T           hotkey-overlay-title="Open a Terminal: kitty"                   repeat=false    { spawn "kitty"; }
+    Mod+O           hotkey-overlay-title="Toggle Overview Mode"                     repeat=false    { toggle-overview; }
 
     XF86Calculator          hotkey-overlay-title="Open Calculator: galculator"                          repeat=false    { spawn "galculator"; }
     XF86AudioRaiseVolume    hotkey-overlay-title="Increase Volume"              allow-when-locked=true                  { spawn "pamixer" "--allow-boost" "--set-limit" "120" "--increase" "5"; }

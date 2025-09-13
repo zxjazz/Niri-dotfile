@@ -107,6 +107,7 @@
     },
     "custom/launcher": {
         "format": "",
+        // "format": "",
         "on-click": "pkill fuzzel || fuzzel",
         "tooltip-format": "Launcher"
     },
