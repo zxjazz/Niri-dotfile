@@ -1,12 +1,10 @@
 niri
 waybar
-wf-recorder
 slurp
 wlogout
 wlsunset
 pacman-contrib
 ffmpegthumbnailer
-evince
 xwayland-satellite
 galculator
 blueman
