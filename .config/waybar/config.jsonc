@@ -130,7 +130,7 @@
     "custom/power": {
         "format": "⏼",
         "tooltip": false,
-        "on-click": "wlogout -c 15 -b 6 -T 400 -B 400"
+        "on-click": "wlogout -c 15 -b 6 -T 350 -B 350 -L 100 -R 100"
     },
     "wlr/taskbar": {
         "format": "{icon}",

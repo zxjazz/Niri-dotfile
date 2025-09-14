@@ -323,7 +323,7 @@ binds {
     Mod+A           hotkey-overlay-title="Run an application: fuzzel"               repeat=false    { spawn "bash" "-c" "pkill fuzzel || fuzzel"; }
     Mod+E           hotkey-overlay-title="Show emojis: fuzzel"                      repeat=false    { spawn "bash" "-c" "pkill fuzzel || fuzzel-emoji"; }
     Mod+Shift+V     hotkey-overlay-title="Clipboard manager: cliphist"              repeat=false    { spawn "bash" "-c" "pkill fuzzel || cliphist-fuzzel-img"; }
-    Mod+Backspace   hotkey-overlay-title="Session Manager: wlogout"                 repeat=false    { spawn "bash" "-c" "pkill wlogout || wlogout -c 15 -b 6 -T 400 -B 400"; }
+    Mod+Backspace   hotkey-overlay-title="Session Manager: wlogout"                 repeat=false    { spawn "bash" "-c" "pkill wlogout || wlogout -c 15 -b 6 -T 350 -B 350 -L 100 -R 100"; }
     Mod+N           hotkey-overlay-title="Toggle Notification: swaync"              repeat=false    { spawn "swaync-client" "-t"; }
     Mod+Space       hotkey-overlay-title="Toggle bar: waybar"                       repeat=false    { spawn "toggle-waybar"; }
     Mod+I           hotkey-overlay-title="Settings: open config"                    repeat=false    { spawn "neovide" ".config/niri"; }
