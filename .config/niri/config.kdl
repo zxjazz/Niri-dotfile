@@ -250,6 +250,7 @@ window-rule {
 window-rule {
     match app-id=r#"zen$"# title="^Picture-in-Picture$"
     match app-id=r#"librewolf$"# title="^Picture-in-Picture$"
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
 }
 
@@ -259,6 +260,8 @@ window-rule {
     match app-id=r#"^jetbrains-idea$"#
     match app-id=r#"^codium$"#
     match app-id=r#"^kitty$"#
+    match app-id=r#"^Vivado$"#
+    match app-id=r#"^Vitis IDE$"#
     
     open-on-workspace "1"
     open-focused true
@@ -278,6 +281,7 @@ window-rule {
 
 window-rule {
     match app-id=r#"org.pwmt.zathura"#
+    match app-id=r#"org.gnome.papers"#
     match app-id=r#"com.github.johnfactotum.Foliate"#
 
     open-on-workspace "3"
